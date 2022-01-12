@@ -9,3 +9,4 @@
 * 启动 app 后提示：**未配置appkey或配置错误**。
   * `HBuilder-Hello` -> `control.xml` 中的 `appid` 为 `uni` 项目中的 `manifest.json` 中的 `appid`。
   * `HBuilder-Hello` -> `HBuilder-uniPlugin-info.plist` （**uni官方文档中写的是 `info.plist` 😱 😓** ） 文件中的 `dcloud_appkey` 值修改为 `uni` 开发者后台中申请的 `ios` `appkey` ，参见：[申请appkey](https://nativesupport.dcloud.net.cn/AppDocs/usesdk/appkey)。
+  * `根目录` -> `targets` -> `HBuilder` -> `Signing & Capabilities` 面板中配置正确的 `Bundle identifier` 和 `Provisioning Profile` （在苹果开发者后台中申请）。
