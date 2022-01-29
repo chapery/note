@@ -1,8 +1,10 @@
 # uniapp
 
-## 原生插件踩坑笔记
+## 原生插件
 
 ### ios
+
+#### 构建问题
 
 * 插件在 M1 版本的 mac 上启动模拟器抛错： `building for iOS Simulator, but linking in an object file built for iOS, for architecture 'arm64'`。
   * 修改打包配置，`根目录` -> `targets` -> `HBuilder` -> `build settings` -> `Architectures` -> `Excluded Architectures` -> `Debug` 下添加 `Any IOS Simulator` 配置项，值为 `arm64` 。所有project都应该添加此配置，不然在 M1 版本的 macbook 上模拟器运行时该 project 不会被打包。
@@ -10,6 +12,12 @@
   * `HBuilder-Hello` -> `control.xml` 中的 `appid` 为 `uni` 项目中的 `manifest.json` 中的 `appid`。
   * `HBuilder-Hello` -> `HBuilder-uniPlugin-info.plist` （**uni官方文档中写的是 `info.plist` 😱 😓** ） 文件中的 `dcloud_appkey` 值修改为 `uni` 开发者后台中申请的 `ios` `appkey` ，参见：[申请appkey](https://nativesupport.dcloud.net.cn/AppDocs/usesdk/appkey)。
   * `根目录` -> `targets` -> `HBuilder` -> `Signing & Capabilities` 面板中配置正确的 `Bundle identifier` 和 `Provisioning Profile` （在苹果开发者后台中申请）。
+
+#### 生命周期执行顺序
+
+1. `onCreateComponentWithRef`
+2. `loadView`
+3. `viewDidLoad`
 
 ### superPlayer
 
@@ -59,7 +67,7 @@ interface LitePlayerProps {
         }
     }) => void
     /** 播放回调 */
-    paly?: () => void
+    play?: () => void
     /** 暂停回调 */
     pause?: () => void
     /** 播放完成回调 */
