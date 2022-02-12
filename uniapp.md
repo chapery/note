@@ -12,12 +12,8 @@
   * `HBuilder-Hello` -> `control.xml` 中的 `appid` 为 `uni` 项目中的 `manifest.json` 中的 `appid`。
   * `HBuilder-Hello` -> `HBuilder-uniPlugin-info.plist` （**uni官方文档中写的是 `info.plist` 😱 😓** ） 文件中的 `dcloud_appkey` 值修改为 `uni` 开发者后台中申请的 `ios` `appkey` ，参见：[申请appkey](https://nativesupport.dcloud.net.cn/AppDocs/usesdk/appkey)。
   * `根目录` -> `targets` -> `HBuilder` -> `Signing & Capabilities` 面板中配置正确的 `Bundle identifier` 和 `Provisioning Profile` （在苹果开发者后台中申请）。
+* 打自定义基座时抛错 `[TXCStreamUploader getDNSServers] in TXLiteAVSDK_Player(TXCStreamUploader.o)` 。解决方法：插件包 `package.json` -> `ios.frameworks` 配置项中添加 `libresolv.9.tbd` 系统库依赖。
 
-#### 生命周期执行顺序
-
-1. `onCreateComponentWithRef`
-2. `loadView`
-3. `viewDidLoad`
 
 ### superPlayer
 
