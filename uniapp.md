@@ -10,7 +10,7 @@
   * 修改打包配置，`根目录` -> `targets` -> `HBuilder` -> `build settings` -> `Architectures` -> `Excluded Architectures` -> `Debug` 下添加 `Any IOS Simulator` 配置项，值为 `arm64` 。所有project都应该添加此配置，不然在 M1 版本的 macbook 上模拟器运行时该 project 不会被打包。
 * 启动 app 后提示：**未配置appkey或配置错误**。
   * `HBuilder-Hello` -> `control.xml` 中的 `appid` 为 `uni` 项目中的 `manifest.json` 中的 `appid`。
-  * `HBuilder-Hello` -> `HBuilder-uniPlugin-info.plist` （**uni官方文档中写的是 `info.plist` 😱 😓** ） 文件中的 `dcloud_appkey` 值修改为 `uni` 开发者后台中申请的 `ios` `appkey` ，参见：[申请appkey](https://nativesupport.dcloud.net.cn/AppDocs/usesdk/appkey)。
+  * `HBuilder-Hello` -> `HBuilder-uniPlugin-info.plist` （**uni官方文档中写的是 `info.plist` 😱** ） 文件中的 `dcloud_appkey` 值修改为 `uni` 开发者后台中申请的 `ios` `appkey` ，参见：[申请appkey](https://nativesupport.dcloud.net.cn/AppDocs/usesdk/appkey)。
   * `根目录` -> `targets` -> `HBuilder` -> `Signing & Capabilities` 面板中配置正确的 `Bundle identifier` 和 `Provisioning Profile` （在苹果开发者后台中申请）。
 * 打自定义基座时抛错 `[TXCStreamUploader getDNSServers] in TXLiteAVSDK_Player(TXCStreamUploader.o)` 。解决方法：插件包 `package.json` -> `ios.frameworks` 配置项中添加 `libresolv.9.tbd` 系统库依赖。
 
