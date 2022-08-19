@@ -6,3 +6,4 @@
 * [uniapp-plugin](uniapp-plugin.md)
 * [objedtive-c](oc.md)
 * [umijs](umijs.md)
+* [算法](algorithms.md)
