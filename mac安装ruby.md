@@ -36,3 +36,11 @@ rvm install 2.7.5
 # 将系统的ruby切换为下载的版本
 rvm use 2.7.5  --default
 ```
+
+## 卸载 rvm
+
+```bash
+rvm implode
+cd ~; sudo rm -rf .rvm .rvmrc/etc/rvmrc; gem uninstall rvm
+```
+最后清理 `.bash_profile` `.bashrc` `.profile` 文件中的相关语句。
